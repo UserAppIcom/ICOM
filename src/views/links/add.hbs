@@ -1,0 +1,208 @@
+
+
+<style>
+  
+body {
+background-image: url('https://t4.ftcdn.net/jpg/02/86/04/23/360_F_286042362_shTRGf8RYV4KYgXShtp6dpFIlFd5ckvL.jpg');
+//background-image: url('/img/imagen5.png');
+background-size: cover; /* La imagen se ajustará al tamaño del cuerpo */
+background-position: center; /* La imagen se centrará */
+background-repeat: no-repeat; /* La imagen no se repetirá */
+margin: 0px; /* Elimina el margen predeterminado del cuerpo */
+padding: 200px; /* Elimina el relleno predeterminado del cuerpo */
+}
+  
+  </style>
+
+<div class="container p-4 h-100">
+  <div class="row h-75 d-flex align-items-center">
+    <div class="col-md-4 mx-auto">
+      <div class="card bg-dark  text-white">
+        <form action="/links/add" method="POST" class="card-body">
+
+          {{! Title and save button }}
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h1 class="text-light mb-3 h4">Crear nuevo Reporte</h1>
+            <button class="btn btn-success btn-block">
+              Guardar
+            </button>
+          </div>
+          <label for="title">Agrega un titulo:</label>
+          <input
+            type="text"
+            name="title"
+            class="form-control bg-dark text-light mb-3"
+            placeholder="Title"
+            autofocus
+          />
+
+          <label for="title">Agrega Una Categoria:</label>
+          <input
+            type="text"
+            name="nomCategoria"
+            class="form-control bg-dark text-light mb-3"
+            placeholder="Categoria"
+            autofocus
+          />
+
+          <label for="url">Website:</label>
+          <input
+            type="url"
+            name="url"
+            class="form-control bg-dark text-light mb-3"
+            placeholder="URL"
+          />
+
+          <label for="description">Agrega una descripción:</label>
+          <textarea
+            name="description"
+            rows="2"
+            class="form-control bg-dark text-light mb-3"
+            placeholder="Description"
+          ></textarea>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<style>
+
+:root{
+    --main-color:#fff;
+  }
+  
+  *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  body{
+    font-family:'Roboto' , 'sans-serif';
+    overflow:hidden;
+  }
+  
+  .main-header{
+    background: #b9d6c0;
+    width: 100%;
+    height:50px;
+  }
+  
+  nav{
+    position: absolute;
+    left:0;
+    top:0;
+    width: 200px;
+    top:50px;
+    height:calc(100vh - 50px);
+    background:#29718d;
+    transform:translateX(-100%);
+    transition:.4s ease;
+  }
+  
+  .navigation li{
+    list-style:none;
+    width: 100%;
+    border-bottom: 1px solid rgba(255,255,255,.5);
+  }
+  
+  .navigation a{
+    color:var(--main-color);
+    display: block;
+    line-height:3.5;
+    padding: 0 10px;
+    text-decoration:none;
+    transition:.4s ease;
+  }
+  
+  .navigation a:hover{
+    transform:translateX(10%);
+  }
+  
+  #btn-nav{
+    display: none;
+  }
+  
+  #btn-nav:checked ~ nav{
+    transform:translateX(0);
+  }
+  
+  .btn-nav{
+    color:var(--main-color);
+    font-size:30px;
+    position: absolute;
+    left:0;
+    top:0;
+    cursor:pointer;
+    padding:6.5px 15px;
+    transition:.2s ease;
+    background:rgba(0,0,0,.1);
+  }
+  
+  .btn-nav:hover{
+    background:rgba(0,0,0,.3);
+  }
+
+  img {
+        max-width: 20px; /* Anchura máxima de la imagen */
+        max-height: 20px; /* Altura máxima de la imagen */
+    }
+  
+  </style>
+
+    
+     <input type="checkbox" id="btn-nav">
+    <link rel="stylesheet" href="index.css">
+    <label for="btn-nav" class="btn-nav"><i class="fas fa-bars">  Menu  <a class="text-aling: righ">{{user.fullname}}</a></i></label> 
+    <nav>
+      <ul class="navigation">
+        <li><a href="#" class="logo">
+            <img src="./img/logo03.png">
+            <span class="nav-item">ICOM</span>
+        </a></li>
+        <li class="nav-item">
+            <a class="nav-link active" href="logout">
+            <i class="fas fa-home"></i> Inicio 
+        </a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/profile">
+            <i class="fas fa-address-book"></i> Usuario
+        </a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/links">
+            <i class="fas fa-address-book"></i> Ver Reportes
+        </a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/links/add">
+            <i class="fas fa-edit"></i> Crear un Reporte
+        </a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#">
+            <i class="fas fa-cube"></i> Generar Cubo
+        </a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#">
+            <i class="fas fa-cog"></i> Soporte
+        </a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/signup">
+            <i class="fas fa-cogs"></i> Configuracion
+        </a>
+        </li>
+
+        <li><a href="/logout"class="logout">
+            <i class="fas fa-sign-out-alt"></i>
+            <span class="nav-item">Logout</span>
+        </a></li>
+        
+      </ul>
+    </nav>
+    

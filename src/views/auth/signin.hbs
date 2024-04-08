@@ -1,0 +1,92 @@
+<div class=" text-alig:  center">
+<h1 class="mb-1 display-1  text: right" style="color: rgb(255, 255, 255)">
+  Análisis de Venta E Inventario Sell Out</h1>
+</div>
+
+<div class="container p-6" >
+  <style>
+    body {
+//background-image: url('https://i.makeagif.com/media/12-04-2018/IxHq7M.gif');
+background-image: url('https://www.michaelpage.fr/sites/michaelpage.fr/files/legacy/shutterstock_1100046194_970x480.jpg');
+background-size: cover; /* La imagen se ajustará al tamaño del cuerpo */
+background-position: center; /* La imagen se centrará */
+background-repeat: no-repeat; /* La imagen no se repetirá */
+margin: 0px; /* Elimina el margen predeterminado del cuerpo */
+padding: 0px; /* Elimina el relleno predeterminado del cuerpo */
+display: flex;
+justify-content: space-between;
+align-items: flex-start; /* Alinea los elementos arriba */
+
+margin-left: 500px; /* Mover el contenedor hacia la derecha */
+transition: margin-left 0.3s ease;
+
+.text{
+width: 100%;
+height:50px;
+color: white;
+margin: auto;
+}
+
+}
+  </style>
+
+
+<div class="container p-10">
+
+  <div class="row">
+    <div class="col-md-12 mx-auto" >
+      <form
+        action="/signin"
+        method="POST"
+        class="card card  text-white p-4" style="background-color:rgb(75, 140, 151)"
+      >
+        <h3 class="text-center my-3">
+          App Icom
+            SignIn
+        </h3>
+
+        <img
+          src="/img/logo03.png"
+          alt="Logo Reportes"
+          class="card-img-top mx-auto m-4 rounded-circle w-50"
+        />
+        <div class="card-body">
+          {{! Email }}
+          <label for="username" class="fw-light fs-6 mb-2">
+            Write a Email:
+          </label>
+          <input
+            type="text"
+            name="email"
+            placeholder="youremail@mail.com"
+            class="form-control mb-3"
+            autofocus
+          />
+
+          <label for="password">
+            Write your Password:
+          </label>
+          <div class="form-group">
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              class="form-control mb-3"
+            />
+          </div>
+          <button class="btn btn-primary btn-block">
+            Login
+          </button>
+        </div>
+      </form>
+
+      {{! Link }}
+    <!-- <p class="fs-5 text-center mt-3 text-light">
+        Don't have an Account?
+        <a href="/signup" class="text-info">
+          Signup
+        </a>
+      </p>-->
+    </div>
+  </div>
+</div>

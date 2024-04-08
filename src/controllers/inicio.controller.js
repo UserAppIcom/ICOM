@@ -1,0 +1,1 @@
+export const renderUserinicio = (req, res) => res.render("inicio");

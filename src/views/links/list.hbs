@@ -1,0 +1,248 @@
+
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abrir Enlace en Contenedor</title>
+<link rel="stylesheet" href="../../public//css/dash04.css" />
+<script>
+function abrirPopup(url) {
+    window.open(url, '_top', 'width=800,height=400'); // Abre una nueva ventana con el tamaño especificado
+} 
+    function cargarPagina(url) {
+        $('#contenedorPagina').html(`<iframe href="{{url}}" width="100%" height="500px  text-align: right"></iframe>`);
+    }
+</script>
+
+</head>
+
+
+<div class="container p-4" >
+
+  
+
+    <style>
+body {
+//background-image: url('https://i.makeagif.com/media/12-04-2018/IxHq7M.gif');
+background-image: url('https://cdn.futura-sciences.com/sources/images/data-analyst-data-scientist-formation-metier.jpeg');
+//background-image: url('https://www.gauri.com/wp-content/uploads/Business-Intelligence-and-Analytics-1080x675.jpeg');
+background-size: cover; /* La imagen se ajustará al tamaño del cuerpo */
+background-position: center; /* La imagen se centrará */
+background-repeat: no-repeat; /* La imagen no se repetirá */
+margin: 0px; /* Elimina el margen predeterminado del cuerpo */
+padding: 0px; /* Elimina el relleno predeterminado del cuerpo */
+margin-left: 250px; /* Mover el contenedor hacia la derecha */
+//transition: margin-left 0.3s ease;
+}
+
+
+//** stilos paneles**
+  .p{
+    margin: 70px; /* Elimina el margen predeterminado del cuerpo */
+    padding: 70px; /* Elimina el relleno predeterminado del cuerpo */
+    margin-left: 250px; /* Mover el contenedor hacia la derecha */
+  }
+/* MAin Section */
+
+//** in paneles **
+
+  </style>
+
+
+
+
+<div id="contenedorPagina" class="contenedor">
+
+ <div class="container p-4">
+  <div class="row">
+    {{#each links}}
+      <div class="col-md-3 p-4">
+        <div class="card text-center bg-dark text-light h-100">
+          <div class="card-body">
+              <a href="{{url}}" onclick="cargarPagina(this.href); return false;" class="text-light">
+              
+                
+                
+              <h3 class="card-title text-uppercase">
+                {{title}}
+              </h3>
+            </a>
+            <p class="m-2">{{description}}</p>
+            <p class="text-muted">
+              {{timeago created_at}}
+            </p>
+            <a class="btn btn-danger" href="/links/delete/{{id}}">
+              Borrar Reporte
+            </a>
+            <a class="btn btn-secondary" href="/links/edit/{{id}}">
+              Editar
+            </a>
+          </div>
+        </div>
+      </div>
+    {{else}}
+      <div class="col-md-4 mx-auto">
+        <div class="card card-body text-center bg-dark text-light">
+          <p>Aún no hay enlaces guardados.</p>
+          <a href="/links/add" class="text-success">Crea uno!</a>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>
+
+</div>
+
+
+<!--Inicio Dasboard -->
+
+
+<!--Fin Dasboard -->
+
+
+  <style>
+
+:root{
+    --main-color:#fff;
+  }
+  
+  *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  body{
+    font-family:'Roboto' , 'sans-serif';
+    overflow:hidden;
+  }
+  
+  .main-header{
+    background: #b9d6c0;
+    width: 100%;
+    height:50px;
+  }
+  
+  nav{
+    position: absolute;
+    left:0;
+    top:0;
+    width: 250px;
+    top:50px;
+    height:calc(100vh - 50px);
+    background:#29718d;
+    transform:translateX(-100%);
+    transition:.4s ease;
+  }
+  
+  .navigation li{
+    list-style:none;
+    width: 100%;
+    border-bottom: 1px solid rgba(255,255,255,.5);
+  }
+  
+  .navigation a{
+    color:var(--main-color);
+    display: block;
+    line-height:3.5;
+    padding: 0 10px;
+    text-decoration:none;
+    transition:.4s ease;
+  }
+  
+  .navigation a:hover{
+    transform:translateX(10%);
+  }
+  
+  #btn-nav{
+    display: none;
+  }
+  
+  #btn-nav:checked ~ nav{
+    transform:translateX(0);
+  }
+  
+  .btn-nav{
+    color:var(--main-color);
+    font-size:30px;
+    position: absolute;
+    left:0;
+    top:0;
+    cursor:pointer;
+    padding:6.5px 15px;
+    transition:.2s ease;
+    background:rgba(0,0,0,.1);
+  }
+  
+  .btn-nav:hover{
+    background:rgba(0,0,0,.3);
+  }
+
+  img {
+        max-width: 20px; /* Anchura máxima de la imagen */
+        max-height: 20px; /* Altura máxima de la imagen */
+    }
+  
+  </style>
+
+    
+    <head>
+    <input type="checkbox" id="btn-nav">
+    <link rel="stylesheet" href="index.css">
+    <label for="btn-nav" class="btn-nav"><i class="fas fa-bars"> Menu  <a class="text-aling: righ">{{user.fullname}}</a></i></label> 
+    <nav>
+      <ul class="navigation">
+        <li><a href="#" class="logo">
+            <img src="./img/logo03.png">
+            <span class="nav-item">ICOM</span>
+        </a></li>
+        <li class="nav-item">
+            <a class="nav-link active" href="/logout">
+            <i class="fas fa-home"></i> Inicio 
+        </a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/profile">
+            <i class="fas fa-address-book"></i> Usuario
+        </a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/links">
+            <i class="fas fa-address-book"></i> Ver Reportes
+        </a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/links/add">
+            <i class="fas fa-edit"></i> Crear un Reporte
+        </a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#">
+            <i class="fas fa-cube"></i> Generar Cubo
+        </a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#">
+            <i class="fas fa-cog"></i> Soporte
+        </a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="inicio">
+            <i class="fas fa-cogs"></i> Configuracion
+        </a>
+        </li>
+
+          <li><a href="/logout"class="logout">
+            <i class="fas fa-sign-out-alt"></i>
+            <span class="nav-item">Logout</span>
+        </a></li>
+        
+      </ul>
+    </nav>
+</head>
+
+    
+  
+
+
+    
