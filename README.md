@@ -43,3 +43,8 @@ npm start
 - Mysql
 - Babel
 - Docker
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 7db0420d9f22ffc23a6f56e7547880706c9f1eb0
