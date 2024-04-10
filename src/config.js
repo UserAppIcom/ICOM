@@ -4,9 +4,9 @@ config();
 
 export const database = {
   connectionLimit: 10,
-  host: process.env.DATABASE_HOST || "icom01.mysql.database.azure.com",
-  user: process.env.DATABASE_USER || "admin23",
-  password: process.env.DATABASE_PASSWORD || "dXAraoB4C$&5",
+  host: process.env.DATABASE_HOST || "localhost",
+  user: process.env.DATABASE_USER || "root",
+  password: process.env.DATABASE_PASSWORD || "Venezuela01#",
   database: process.env.DATABASE_NAME || "linksdb",
   port: process.env.DATABASE_PORT || 3306,
 };
