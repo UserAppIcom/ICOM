@@ -11,6 +11,7 @@ export const database = {
   port: process.env.DATABASE_PORT || 3306,
 };
 
+
 export const port = process.env.PORT || 4000;
 
 export const SECRET = process.env.SECRET || 'some secret key';
