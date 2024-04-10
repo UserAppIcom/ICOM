@@ -6,8 +6,66 @@
 <title>Abrir Enlace en Contenedor</title>
 <link rel="stylesheet" href="../../public//css/dash04.css" />
 <script>
+
+  <style>
+/* Main Section */
+.main{
+  position: relative;
+  padding: 20px;
+  width: 100%;
+}
+.main-top{
+  display: flex;
+  width: 100%;
+}
+.main-top i{
+  position: absolute;
+  right: 0;
+  margin: 10px 30px;
+  color: rgb(110, 109, 109);
+  cursor: pointer;
+}
+.main-skills{
+  display: flex;
+  margin-top: 20px;
+}
+.main-skills .card{
+  width: 25%;
+  margin: 10px;
+  background: #fff;
+  text-align: center;
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+.main-skills .card h3{
+  margin: 10px;
+  text-transform: capitalize;
+}
+.main-skills .card p{
+  font-size: 12px;
+}
+.main-skills .card button{
+  background: orangered;
+  color: #fff;
+  padding: 7px 15px;
+  border-radius: 10px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+.main-skills .card button:hover{
+  background: rgba(223, 70, 15, 0.856);
+}
+.main-skills .card i{
+  font-size: 22px;
+  padding: 10px;
+}
+
+</style>
+
+
 function abrirPopup(url) {
-    window.open(url, '_top', 'width=800,height=400'); // Abre una nueva ventana con el tamaño especificado
+    window.open(url, '_blank', 'width=800,height=400'); // Abre una nueva ventana con el tamaño especificado
 } 
     function cargarPagina(url) {
         $('#contenedorPagina').html(`<iframe href="{{url}}" width="100%" height="500px  text-align: right"></iframe>`);
@@ -30,23 +88,43 @@ background-size: cover; /* La imagen se ajustará al tamaño del cuerpo */
 background-position: center; /* La imagen se centrará */
 background-repeat: no-repeat; /* La imagen no se repetirá */
 margin: 0px; /* Elimina el margen predeterminado del cuerpo */
-padding: 0px; /* Elimina el relleno predeterminado del cuerpo */
-margin-left: 250px; /* Mover el contenedor hacia la derecha */
+padding: 100px; /* Elimina el relleno predeterminado del cuerpo */
+margin-center: 250px; /* Mover el contenedor hacia la derecha */
 //transition: margin-left 0.3s ease;
 }
 
 
 //** stilos paneles**
-  .p{
-    margin: 70px; /* Elimina el margen predeterminado del cuerpo */
-    padding: 70px; /* Elimina el relleno predeterminado del cuerpo */
-    margin-left: 250px; /* Mover el contenedor hacia la derecha */
-  }
+
 /* MAin Section */
 
 //** in paneles **
 
   </style>
+
+    <!-- Contenedores-->
+
+  <section class="main">
+        <div class="main-top">
+        
+        <i class="fas fa-user-cog"></i>
+        </div>
+        <div class="main-skills">
+        <div class="card">
+            <i class="fas fa-laptop-code"></i>
+            <h3>Finanzas</h3>
+            <p>Reportes.</p>
+            <button>Ver Reportes</button>
+        </div>
+        <div class="card">
+            <i class="fab fa-wordpress"></i>
+            <h3>Comercial</h3>
+            <p>Reportes</p>
+            <button>Ver Reportes</button>
+        </div>
+      
+      
+        </div>
 
 
 
@@ -59,7 +137,7 @@ margin-left: 250px; /* Mover el contenedor hacia la derecha */
       <div class="col-md-3 p-4">
         <div class="card text-center bg-dark text-light h-100">
           <div class="card-body">
-              <a href="{{url}}" onclick="cargarPagina(this.href); return false;" class="text-light">
+              <a href="{{url}}" onclick="abrirPopup(this.href); return false;" class="text-light">
               
                 
                 
@@ -185,19 +263,18 @@ margin-left: 250px; /* Mover el contenedor hacia la derecha */
   
   </style>
 
-    
+    <div >
+
+      
     <head>
     <input type="checkbox" id="btn-nav">
     <link rel="stylesheet" href="index.css">
     <label for="btn-nav" class="btn-nav"><i class="fas fa-bars"> Menu  <a class="text-aling: righ">{{user.fullname}}</a></i></label> 
     <nav>
       <ul class="navigation">
-        <li><a href="#" class="logo">
-            <img src="./img/logo03.png">
-            <span class="nav-item">ICOM</span>
-        </a></li>
+
         <li class="nav-item">
-            <a class="nav-link active" href="/logout">
+            <a class="nav-link active" href="/links">
             <i class="fas fa-home"></i> Inicio 
         </a>
         </li>
@@ -227,7 +304,7 @@ margin-left: 250px; /* Mover el contenedor hacia la derecha */
         </a>
         </li>
         <li class="nav-item">
-        <a class="nav-link" href="inicio">
+        <a class="nav-link" href="/signup">
             <i class="fas fa-cogs"></i> Configuracion
         </a>
         </li>
@@ -241,6 +318,11 @@ margin-left: 250px; /* Mover el contenedor hacia la derecha */
     </nav>
 </head>
 
+
+
+
+
+    </div>
     
   
 

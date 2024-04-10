@@ -14,6 +14,40 @@ margin: 120px; /* Elimina el margen predeterminado del cuerpo */
 padding: 0px; /* Elimina el relleno predeterminado del cuerpo */
 }
   </style>
+
+  <style>
+    /* Estilos para el popup */
+    .popup {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 300px;
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        z-index: 9999;
+    }
+    .popup h2 {
+        margin-top: 0;
+    }
+    .popup input[type="text"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+    }
+    .popup button {
+        padding: 8px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+    }
+
+  </style>
   <!-- -->
   <div class="row">
     <div class="col-md-4 mx-auto">
@@ -21,9 +55,10 @@ padding: 0px; /* Elimina el relleno predeterminado del cuerpo */
         <h1 class="fw-bold">Bienvenido {{user.fullname}}</h1>
         <h4>{{user.email}}</h4>
         <p>{{timeago user.created_at}}</p>
-        <a href="/links" class="btn btn-primary m-4">
+        <!--<a href="/links" class="btn btn-primary m-4">
           Ir A enlaces
-        </a>
+        </a>-->
+        <button onclick="abrirPopup()">EditarPassword</button>
       </div>
     </div>
     <!--<p class="fs-5 text-center mt-3 text-light">
@@ -35,6 +70,36 @@ padding: 0px; /* Elimina el relleno predeterminado del cuerpo */
 
   </div>
 </div>
+
+
+<div class="popup" id="popup">
+    <h2>Editar Información</h2>
+    <label for="Password">Password:</label>
+    <input type="text" id="nombre">
+    <button onclick="guardarCambios()">Guardar Cambios</button>
+    <button onclick="cerrarPopup()">Cancelar</button>
+</div>
+
+<script>
+    function abrirPopup() {
+        var popup = document.getElementById('popup');
+        popup.style.display = 'block';
+    }
+
+    function cerrarPopup() {
+        var popup = document.getElementById('popup');
+        popup.style.display = 'none';
+    }
+
+    function guardarCambios() {
+        var nombre = document.getElementById('Password').value;
+
+        // Aquí puedes enviar los datos a tu servidor para procesarlos
+        console.log("Password:", password);
+    
+        cerrarPopup();
+    }
+</script>
 
 
   <style>
@@ -129,13 +194,6 @@ padding: 0px; /* Elimina el relleno predeterminado del cuerpo */
     <label for="btn-nav" class="btn-nav"><i class="fas fa-bars"> Menu <a class="text-aling: righ">{{user.fullname}}</a></i></label> 
     <nav>
       <ul class="navigation">
-        <li  class="text-light"><a>User Activo</a></li>
-        <li  class="text-light"><a>{{user.fullname}}</a></li>
-        
-        <li><a href="#" class="logo">
-            <img src="./img/logo2.png">
-            <span class="nav-item">ICOM</span>
-        </a></li>
         <li class="nav-item">
             <a class="nav-link active" href="logout">
             <i class="fas fa-home"></i> Inicio 
