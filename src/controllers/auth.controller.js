@@ -5,7 +5,7 @@ import { pool } from "../database.js";
 export const renderSignUp = (req, res) => res.render("auth/signup");
 
 export const signUp = async (req, res, next) => {
-  const { fullname, email, password1, tipoDoc, numDoc, codCliente, codRole, codPerfil, codCategoria, nomCategoria, estado, nombreRol } = req.body;
+  const { fullname, email, password1  } = req.body;
 
   const password = await encryptPassword(password1);
 
@@ -13,16 +13,8 @@ export const signUp = async (req, res, next) => {
   const [result] = await pool.query("INSERT INTO users SET ? ", {
     fullname,
     email,
-    password1,
-    tipoDoc, 
-    numDoc, 
-    codCliente, 
-    codRole, 
-    codPerfil, 
-    codCategoria, 
-    nomCategoria, 
-    estado, 
-    nombreRol
+    password,
+  
   });
 
   req.login(
@@ -30,16 +22,7 @@ export const signUp = async (req, res, next) => {
       id: result.insertId,
       fullname,
       email,
-      password,
-      tipoDoc, 
-      numDoc, 
-      codCliente, 
-      codRole, 
-      codPerfil, 
-      codCategoria, 
-      nomCategoria, 
-      estado, 
-      nombreRol
+      password
     },
     (err) => {
       if (err) {
