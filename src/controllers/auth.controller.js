@@ -4,6 +4,8 @@ import { pool } from "../database.js";
 
 export const renderSignUp = (req, res) => res.render("auth/signup");
 
+export const renderInicioLinks = (req, res) => res.render("links/InicioLinks")
+
 export const signUp = async (req, res, next) => {
   const { fullname, email, password1  } = req.body;
 
@@ -28,7 +30,7 @@ export const signUp = async (req, res, next) => {
       if (err) {
         return next(err);
       }
-      return res.redirect("/");
+      return res.redirect("links/Inicio");
     }
   );
 };
@@ -40,7 +42,7 @@ export const renderSignIn = (req, res) => {
 
 
 export const signIn = passport.authenticate("local.signin", {
-  successRedirect: "/links",
+  successRedirect: "links/Inicio",
   failureRedirect: "/signin",
   passReqToCallback: true,
   failureFlash: true,

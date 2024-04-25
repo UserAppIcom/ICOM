@@ -22,7 +22,10 @@ router.post("/add", isLoggedIn, validator(createLinkSchema), addLink);
 router.get("/delete/:id", isLoggedIn, deleteLink);
 router.get("/edit/:id", isLoggedIn, renderEditLink);
 router.post("/edit/:id", isLoggedIn, editLink);
-router.get("/inicio/:id", isLoggedIn, renderUserinicio);
+
+router.get('/Inicio', (req, res) => {
+  res.render('links/Inicio');
+});
 
 
 export default router;
