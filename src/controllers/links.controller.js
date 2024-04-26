@@ -43,6 +43,13 @@ export const renderEditLink = async (req, res) => {
   res.render("links/edit", { link: rows[0] });
 };
 
+
+export const renderLinkCategoria = async (req, res) => {
+  const { id } = req.params;
+  const [rows] = await pool.query("SELECT DISTINCT nomCategoria FROM links ", [id]);
+  res.render("links/categoria", { link: rows[0] });
+};
+
 export const editLink = async (req, res) => {
   const { id } = req.params;
   const { title, description, url } = req.body;

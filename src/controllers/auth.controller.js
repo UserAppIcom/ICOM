@@ -4,7 +4,9 @@ import { pool } from "../database.js";
 
 export const renderSignUp = (req, res) => res.render("auth/signup");
 
-export const renderInicioLinks = (req, res) => res.render("links/InicioLinks")
+export const renderInicioLinks = (req, res) => res.render("links/InicioLinks");
+
+export const renderCategorias = (req, res) => res.render("links/Categorias");
 
 export const signUp = async (req, res, next) => {
   const { fullname, email, password1  } = req.body;

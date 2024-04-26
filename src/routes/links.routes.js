@@ -9,6 +9,8 @@ import {
   editLink,
   renderEditLink,
   renderUserinicio,
+
+  
  
   
 } from "../controllers/links.controller.js";
@@ -25,6 +27,10 @@ router.post("/edit/:id", isLoggedIn, editLink);
 
 router.get('/Inicio', (req, res) => {
   res.render('links/Inicio');
+});
+
+router.get('/categoria', (req, res) => {
+  res.render('links/categoria');
 });
 
 

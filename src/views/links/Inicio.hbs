@@ -85,7 +85,7 @@ padding: 0px; /* Elimina el relleno predeterminado del cuerpo */
             <i class="fas fa-laptop-code"></i>
             <h3>Finanzas</h3>
             <p>Reportes.</p>
-        <a class="btn btn-primary btn-lg " style="background:  rgb(53, 178, 182)" href="/links{{id}}">
+        <a  class="btn btn-primary btn-lg " style="background:  rgb(53, 178, 182)" href="/links/categoria/{{link.id}}">
             Finanzas
         </a>
         </div>
@@ -93,10 +93,43 @@ padding: 0px; /* Elimina el relleno predeterminado del cuerpo */
             <i class="fab fa-wordpress"></i>
             <h3>Comercial</h3>
             <p>Reportes</p>
-        <a class="btn btn-primary btn-lg " style="background:  rgb(53, 178, 182)" href="/links">
+        <a  class="btn btn-primary btn-lg " style="background:  rgb(53, 178, 182)" href="/links/categoria/{{link.id}}">
             Comercial
         </a>
         </div>
+        <div class="card">
+            <i class="fas fa-laptop-code"></i>
+            <h3>Todas</h3>
+            <p>Reportes</p>
+        <a  class="btn btn-primary btn-lg " style="background:  rgb(53, 178, 182)" href="/links">
+            Todo
+        </a>
+        </div>
+
+
+    
+            
+            </ul>
+
+
+    <!-- Muestra los botones de categoría -->
+{{#each categorias}}
+    <button class="categoria" nomCategoria="{{this}}">{{this}}</button>
+{{/each}}
+
+<script>
+    // Manejar el clic en un botón de categoría
+    document.querySelectorAll('.nomCategoria').forEach(button => {
+        button.addEventListener('click', function() {
+            // Obtener la categoría seleccionada
+            const categoriaSeleccionada = this.getAttribute('nomCategoria');
+
+            // Redireccionar a otra página con la categoría como parámetro
+            window.location.href = `/links?nomCategoria=${categoriaSeleccionada}`;
+        });
+    });
+</script>
+
     
     
     
@@ -110,8 +143,6 @@ padding: 0px; /* Elimina el relleno predeterminado del cuerpo */
         </a>
     </div>-->
 
-<button onclick="navegarACategoria('Finanzas')">Finanzas</button>
-<button onclick="navegarACategoria('Comercial')">Comercial</button>
 
 <script>
     function navegarACategoria(categoria) {
