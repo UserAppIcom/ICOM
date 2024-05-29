@@ -3,10 +3,11 @@ import { pool } from "../database.js";
 export const renderAddLink = (req, res) => res.render("links/add");
 
 export const addLink = async (req, res) => {
-  const { title, url, description } = req.body;
+  const { title, nomCategoria, url, description } = req.body;
   await pool.query("INSERT INTO links set ?", [
     {
       title,
+      nomCategoria,
       url,
       description,
       user_id: req.user.id,
@@ -46,7 +47,7 @@ export const renderEditLink = async (req, res) => {
 
 export const renderLinkCategoria = async (req, res) => {
   const { id } = req.params;
-  const [rows] = await pool.query("SELECT DISTINCT nomCategoria FROM links ", [id]);
+  const [rows] = await pool.query("SELECT nomCategoria FROM links WHERE id = ?", [id]);
   res.render("links/categoria", { link: rows[0] });
 };
 

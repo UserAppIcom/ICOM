@@ -91,18 +91,54 @@ padding: 100px; /* Elimina el relleno predeterminado del cuerpo */
 margin-center: 250px; /* Mover el contenedor hacia la derecha */
 //transition: margin-left 0.3s ease;
 }
-
-
-//** stilos paneles**
-
-/* MAin Section */
-
-//** in paneles **
-
   </style>
 
+<body>
+  <p text="background-color: white">Busqueda por categoria</p>
+  <form id="form-busqueda">
+  
+    <input type="text" id="query" name="query">
+    <button type="submit">Buscar</button>
+  </form>
+  <div id="resultados"></div>
 
-<div id="contenedorPagina" class="contenedor">
+  <script src="script.js"></script>
+</body>
+
+<script>
+document.getElementById('form-busqueda').addEventListener('submit', function(event) {
+  event.preventDefault();
+  const query = document.getElementById('query').value.trim();
+
+  // Realizar solicitud POST para buscar en MySQL
+  fetch('/links', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ query })
+  })
+  .then(response => response.json())
+  .then(data => {
+    const resultadosDiv = document.getElementById('resultados');
+    resultadosDiv.innerHTML = '';
+
+    data.forEach(resultado => {
+      const p = document.createElement('p');
+      p.textContent = resultado.nombre;
+      resultadosDiv.appendChild(p);
+    });
+  })
+  .catch(error => console.error('Error al buscar en MySQL:', error));
+});
+
+
+</script>
+
+
+
+
+<!-- serch fin  -->
 
   <!-- Contenedores-->
 
@@ -135,18 +171,17 @@ margin-center: 250px; /* Mover el contenedor hacia la derecha */
         </div>
       </div>
     {{else}}
-      
+      <div class="col-md-4 mx-auto">
+        <div class="card card-body text-center bg-dark text-light">
+          <p>Aún no hay enlaces guardados.</p>
+          <a href="/links/add" class="text-success">Crea uno!</a>
+        </div>
+      </div>
     {{/each}}
   </div>
 </div>
 
 </div>
-
-
-<!--Inicio Dasboard -->
-
-
-<!--Fin Dasboard -->
 
 
   <style>
@@ -245,12 +280,12 @@ margin-center: 250px; /* Mover el contenedor hacia la derecha */
       <ul class="navigation">
 
         <li class="nav-item">
-            <a class="nav-link active" href="links/Inicio">
+            <a class="nav-link active" href="/links/Inicio">
             <i class="fas fa-home"></i> Inicio 
         </a>
         </li>
         <li class="nav-item">
-        <a class="nav-link" href="profile">
+        <a class="nav-link" href="/profile">
             <i class="fas fa-address-book"></i> Usuario
         </a>
         </li>

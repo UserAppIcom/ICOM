@@ -9,6 +9,7 @@ import {
   editLink,
   renderEditLink,
   renderUserinicio,
+  renderLinkCategoria,
 
   
  
@@ -25,11 +26,12 @@ router.get("/delete/:id", isLoggedIn, deleteLink);
 router.get("/edit/:id", isLoggedIn, renderEditLink);
 router.post("/edit/:id", isLoggedIn, editLink);
 
+
 router.get('/Inicio', (req, res) => {
   res.render('links/Inicio');
 });
 
-router.get('/categoria', (req, res) => {
+router.get('/categoria/:id', renderLinkCategoria,(req, res) => {
   res.render('links/categoria');
 });
 

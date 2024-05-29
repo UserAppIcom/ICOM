@@ -4,10 +4,10 @@ config();
 
 export const database = {
   connectionLimit: 10,
-  host: process.env.DATABASE_HOST || "serviceconectionaws.czmceqekcjao.us-east-2.rds.amazonaws.com",
-  user: process.env.DATABASE_USER || "admin",
-  password: process.env.DATABASE_PASSWORD || "dXAraoB4C$&5",
-  database: process.env.DATABASE_NAME || "linksdb",
+  host: process.env.DATABASE_HOST || "b4pjl8vtmhvyealxqgpm-mysql.services.clever-cloud.com",
+  user: process.env.DATABASE_USER || "ui9vlhx39ltyv7i7",
+  password: process.env.DATABASE_PASSWORD || "tN2zupm1wcDmbYnu9grQ",
+  database: process.env.DATABASE_NAME || "b4pjl8vtmhvyealxqgpm",
   port: process.env.DATABASE_PORT || 3306,
 };
 

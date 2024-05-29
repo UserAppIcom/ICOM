@@ -1,4 +1,4 @@
-CREATE DATABASE IF NOT EXISTS linksdb;
+CREATE DATABASE  linksdb;
 
 USE linksdb;
 
@@ -15,17 +15,18 @@ CREATE TABLE users (
   codRole VARCHAR(15) NOT NULL,
   codPerfil VARCHAR(15) NOT NULL,
   estado VARCHAR(20) NOT NULL,
-  nombreRol VARCHAR(20) NOT NULL
+  nombreRol VARCHAR(20) NOT NULL,
   created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (id)
 ) AUTO_INCREMENT=2;
+
 
 -- drop table users
 
 DESCRIBE users;
 
-INSERT INTO users (id, fullname, email, password) 
-  VALUES (1, 'AndresAguirre', 'andres@gmail.com', 'Andres029');
+INSERT INTO users (id, fullname, email, password, tipoDoc,  numDoc,  codCliente,  codRole,  codPerfil,  estado, nombreRol) 
+  VALUES (1, 'DEMO', 'DEMO@gmail.com', '123456', 'DNI', '78954621', 'CC001', 'CR001', 'CP001', 'Activo', 'User');
 
 SELECT * FROM users;
 
@@ -111,3 +112,35 @@ ALTER TABLE Sessions
   MODIFY id INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 2;
 
   DESCRIBE Sessions;
+
+    --  TABLE clientes
+CREATE TABLE Clientes (
+  id INT(11) NOT NULL,
+  codCliente VARCHAR(15) NOT NULL,
+  ruc VARCHAR(20) NOT NULL,
+  empresa VARCHAR(20) NOT NULL,
+  logo VARCHAR(20) NOT NULL
+);
+
+ALTER TABLE Clientes
+  ADD PRIMARY KEY (id);
+
+ALTER TABLE Clientes
+  MODIFY id INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 2;
+
+  DESCRIBE Clientes;
+
+ --  TABLE asigreportes
+CREATE TABLE asigreportes (
+  id INT(11) NOT NULL,
+  codReporte VARCHAR(15) NOT NULL,
+  codPerfil VARCHAR(20) NOT NULL
+);
+
+ALTER TABLE asigreportes
+  ADD PRIMARY KEY (id);
+
+ALTER TABLE asigreportes
+  MODIFY id INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 2;
+
+  DESCRIBE asigreportes;
